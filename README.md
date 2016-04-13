@@ -27,5 +27,5 @@ webpack-dev-server
 ```
 
 ### Authors
-[acolin](https://github.com/acolin)
-[jesuslerma](https://github.com/jesuslerma)
+*[acolin](https://github.com/acolin)
+*[jesuslerma](https://github.com/jesuslerma)
