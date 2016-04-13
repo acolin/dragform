@@ -16,7 +16,9 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: PATHS.dist,
-    filename: 'dragform.min.js'
+    filename: 'dragform.min.js',
+    libraryTarget: 'umd',
+    library: 'DragForm'
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({

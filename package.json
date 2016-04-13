@@ -2,7 +2,10 @@
   "name": "dragform",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/dragform.min.js",
   "dependencies": {},
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.8",
@@ -16,7 +19,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack-dev-server --content-base build"
+    "start": "webpack-dev-server --content-base build",
+    "prepublish": "webpack"
   },
   "repository": {
     "type": "git",
