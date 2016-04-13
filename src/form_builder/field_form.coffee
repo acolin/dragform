@@ -1,6 +1,11 @@
-class FormBuilder.FieldForm
+Field = require('./models/field')
+TextFieldType = require('./field_types/text_field_type')
+TextAreaFieldType = require('./field_types/text_area_field_type')
+SelectFieldType = require('./field_types/select_field_type')
+
+class FieldForm
   constructor: (args={}) ->
-    @_field = args.field || ko.observable(new FormBuilder.Model.Field())
+    @_field = args.field || ko.observable(new Field())
     @field = ko.observable(@_field().dup())
     @fieldTypes = @_initFieldTypes()
 
@@ -25,7 +30,9 @@ class FormBuilder.FieldForm
 
   _initFieldTypes: ->
     {
-      text:  new FormBuilder.FieldType.TextFieldType()
-      textarea: new FormBuilder.FieldType.TextAreaFieldType()
-      select: new FormBuilder.FieldType.SelectFieldType(options: @field().options)
+      text:  new TextFieldType()
+      textarea: new TextAreaFieldType()
+      select: new SelectFieldType(options: @field().options)
     }
+
+module.exports = FieldForm

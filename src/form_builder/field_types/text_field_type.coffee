@@ -1,4 +1,4 @@
-class FormBuilder.FieldType.TextFieldType
+class TextFieldType
   constructor: (args={}) ->
     @value = args.value || @_defaultValue()
     @text = args.text || @_defaultText()
@@ -8,3 +8,5 @@ class FormBuilder.FieldType.TextFieldType
 
   _defaultText: ->
     "Texto"
+
+module.exports = TextFieldType

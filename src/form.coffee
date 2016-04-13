@@ -1,9 +1,15 @@
-class FormBuilder.Form
+FormModel = require('./form_builder/models/form')
+FieldForm = require('./form_builder/field_form')
+FieldManager = require('./form_builder/field_manager')
+FormSerializer = require('./form_builder/serializers/publish')
+formTemplate = require('./form_builder/templates/form_template')
+
+class Form
   constructor: (args={}) ->
-    @form = new FormBuilder.Model.Form(args.registrationForm)
+    @form = new FormModel(args.registrationForm)
     @title = args.title || @_defaultTitle()
     @description = args.description || @_defaultDescription()
-    @newFieldForm = new FormBuilder.FieldForm()
+    @newFieldForm = new FieldForm()
     @fieldList = ko.observableArray()
     @_initFieldList(args.fieldsData)
     @defaultQuestionLimit = @_initQuestionLimit(args.questionLimit)
@@ -36,7 +42,7 @@ class FormBuilder.Form
 
   addQuestion: ->
     if @remainingQuestionLimit() isnt 0 and @newFieldForm.save()
-      @fieldManager = FormBuilder.FieldManager.create(fieldData: ko.observable(@newFieldForm.field().dup()))
+      @fieldManager = FieldManager.create(fieldData: ko.observable(@newFieldForm.field().dup()))
       @_assingPosition()
       @fieldList.push(@fieldManager)
       @newFieldForm.field().clear()
@@ -49,7 +55,7 @@ class FormBuilder.Form
     @hasChanges(true) if item.field()._destroy(true)
 
   toJSON:->
-    form = new FormBuilder.Serializers.Publish(fieldList: @fieldList(), form: @form)
+    form = new FormSerializer(fieldList: @fieldList(), form: @form)
     form.toJSON()
 
   isNewRecord:->
@@ -73,7 +79,7 @@ class FormBuilder.Form
 
   _initFieldList: (fieldsData=[]) ->
     @fieldList.removeAll()
-    @fieldList.push(FormBuilder.FieldManager.create(fieldData: fieldData)) for fieldData in fieldsData
+    @fieldList.push(FieldManager.create(fieldData: fieldData)) for fieldData in fieldsData
     @_sortFieldList()
 
   _sortFieldList: ->
@@ -95,14 +101,14 @@ class FormBuilder.Form
     @_applyBindings()
 
   _renderHTMLTemplate: ->
-    target = document.getElementById("form-builder-container")
+    target = document.getElementById("dragform")
     target.innerHTML = @_HTMLTemplate()
 
   _applyBindings: ->
     ko.applyBindings(@)
 
   _HTMLTemplate: ->
-    FormBuilder.Template.formTemplate
+    formTemplate
 
   _assingPosition: ->
     @fieldManager.setPosition(@_newFieldPosition())
@@ -130,3 +136,5 @@ class FormBuilder.Form
         dragElements = $('.ui-state-highlight')
         dragElements.css 'height', ui.helper.outerHeight()
 
+
+module.exports = Form

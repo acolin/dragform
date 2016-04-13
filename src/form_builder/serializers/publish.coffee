@@ -1,4 +1,4 @@
-class FormBuilder.Serializers.Publish
+class Publish
   constructor:(args={})->
     @fieldList = args.fieldList
     @form      = args.form
@@ -21,3 +21,5 @@ class FormBuilder.Serializers.Publish
 
   _getItemFields: ->
     fieldManager.field() for fieldManager in @fieldList
+
+module.exports = Publish

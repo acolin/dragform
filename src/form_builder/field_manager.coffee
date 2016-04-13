@@ -1,7 +1,10 @@
-class FormBuilder.FieldManager
+FieldForm = require('./field_form')
+Field = require('./models/field');
+
+class FieldManager
   constructor: (args={}) ->
     @field = @_initField(args.fieldData)
-    @editForm = new FormBuilder.FieldForm(field: @field)
+    @editForm = new FieldForm(field: @field)
     @mode = ko.observable('show')
     @hasChanges = ko.observable(false)
 
@@ -35,4 +38,6 @@ class FormBuilder.FieldManager
 
   _initField: (fieldData) ->
     return fieldData if typeof fieldData == 'function'
-    ko.observable(new FormBuilder.Model.Field(fieldData))
+    ko.observable(new Field(fieldData))
+
+module.exports = FieldManager

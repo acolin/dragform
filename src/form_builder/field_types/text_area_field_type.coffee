@@ -1,4 +1,4 @@
-class FormBuilder.FieldType.TextAreaFieldType
+class TextAreaFieldType
   constructor: (args={}) ->
     @value = args.value || @_defaultValue()
     @text = args.text || @_defaultText()
@@ -8,3 +8,5 @@ class FormBuilder.FieldType.TextAreaFieldType
 
   _defaultText: ->
     "Un párrafo de texto"
+
+module.exports = TextAreaFieldType

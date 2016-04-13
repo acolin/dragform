@@ -1,4 +1,4 @@
-class FormBuilder.Model.FieldSelectOption
+class FieldSelectOption
   constructor: (args={}) ->
     @value = ko.observable(args.value)
     @_setValidations()
@@ -15,3 +15,5 @@ class FormBuilder.Model.FieldSelectOption
 
   _setValidations: ->
     @value.extend({ required: message: 'Este campo es obligatorio' })
+
+module.exports = FieldSelectOption

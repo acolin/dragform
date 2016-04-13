@@ -1,12 +1,14 @@
-class FormBuilder.Model.Field
+FieldSelectOption = require('./field_select_option')
+
+class Field
   constructor: (args={}) ->
     @helpText = ko.observable(args.helpText)
     @position = ko.observable(args.position)
     @required = ko.observable(args.required)
-    @options  = ko.observableArray(@_mapOptions(args.options))
-    @title    = ko.observable(args.title)
-    @type     = ko.observable(args.type)
-    @id       = ko.observable(args.id)
+    @options = ko.observableArray(@_mapOptions(args.options))
+    @title = ko.observable(args.title)
+    @type = ko.observable(args.type)
+    @id = ko.observable(args.id)
     @_destroy = ko.observable(false)
     @_setValidations()
     @_setOptionsValidations()
@@ -16,7 +18,7 @@ class FormBuilder.Model.Field
     @title.isValid() && @type.isValid() && @_optionsAreValid()
 
   dup: ->
-    dup = ko.mapping.fromJS(ko.mapping.toJS(@), {}, new FormBuilder.Model.Field)
+    dup = ko.mapping.fromJS(ko.mapping.toJS(@), {}, new Field)
     dup._setValidations()
     dup
 
@@ -61,4 +63,6 @@ class FormBuilder.Model.Field
     @options.notifySubscribers() if @isType('select')
 
   _mapOptions: (options=[]) ->
-    FormBuilder.Model.FieldSelectOption.create(options)
+    FieldSelectOption.create(options)
+
+module.exports = Field

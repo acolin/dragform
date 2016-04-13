@@ -1,4 +1,4 @@
-FormBuilder.Template.formTemplate ="
+formTemplate ="
   <div class='registry-form card-info'>
     <a class='form-helper' href='#'' data-reveal-my-id='about-forms-modal'>
       <span class='icon ss-standard ss-help'></span>
@@ -200,3 +200,5 @@ FormBuilder.Template.formTemplate ="
     </ul>
   </form>
 </div>"
+
+module.exports = formTemplate
