@@ -1,6 +1,6 @@
 # DragForm Plugin
 
-A plugin for creating forms using death simple Drag&Drop
+A plugin for creating forms using dead simple Drag&Drop
 
 ### Usage
 
