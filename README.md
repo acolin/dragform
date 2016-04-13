@@ -26,7 +26,7 @@ A plugin for creating forms using dead simple Drag&Drop
 ### Development
 
 ```
-git clone
+git clone git@github.com:acolin/dragform.git
 cd /path/to/repo
 npm install
 
