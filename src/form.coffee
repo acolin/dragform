@@ -30,7 +30,7 @@ class Form
     @subscribers = []
 
   publish: ->
-    if confirm '¿Estás seguro que quieres publicar los cambios?'
+    if confirm 'Are you sure you want to publish your changes?'
       @hasChanges(false)
       @notifyOnSubscribers('onPublish', @)
 

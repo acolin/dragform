@@ -7,6 +7,6 @@ class TextFieldType
     "text"
 
   _defaultText: ->
-    "Texto"
+    "Text"
 
 module.exports = TextFieldType

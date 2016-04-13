@@ -16,6 +16,6 @@ class SelectFieldType
     "select"
 
   _defaultText: ->
-    "Selecciona de una lista"
+    "Choose from a list"
 
 module.exports = SelectFieldType

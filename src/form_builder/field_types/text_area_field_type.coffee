@@ -7,6 +7,6 @@ class TextAreaFieldType
     "textarea"
 
   _defaultText: ->
-    "Un párrafo de texto"
+    "A paragraph"
 
 module.exports = TextAreaFieldType

@@ -3,14 +3,10 @@ formTemplate ="
     <a class='form-helper' href='#'' data-reveal-my-id='about-forms-modal'>
       <span class='icon ss-standard ss-help'></span>
     </a>
-    <h2>Forma de registro por Boleto</h2>
-    <div class='system-message notice'>
-      <strong>Nombre</strong>, <strong>Apellido</strong> y
-      <strong>Email</strong> son campos por defecto, no es necesario que los agregues.
-    </div>
+    <h2>DragForm Builder</h2>
     <div class='registry-form-container' style='border: 0'>
       <div class='additional-fields'>
-        <h5 class='fieldset-title' data-bind='visible: remainingQuestionLimit().length > 0'> Datos adicionales</h5>
+        <h5 class='fieldset-title' data-bind='visible: remainingQuestionLimit().length > 0'> Aditional Information</h5>
         <ul id='select-options' class='field-list' data-bind='sortable: filteredList()'>
           <li class='custom-field ui-state-default'>
             <ul>
@@ -54,20 +50,20 @@ formTemplate ="
               <form data-bind='with: editForm.field, submit: function() { $root.updateQuestion($data) }' id='new-form-field'>
                 <ul class='form-field-container'>
                   <li class='form-field'>
-                      <label>Título de la pregunta</label>
-                      <input type='text' id='new-field-title' data-bind='value: title' class='' title='Este campo es obligatorio'>
+                      <label>Question title</label>
+                      <input type='text' id='new-field-title' data-bind='value: title' class='' title='This field is required'>
                   </li>
                   <li class='form-field'>
                       <label>
-                        Texto de ayuda
-                        <span class='optional'>(Opcional)</span>
+                        Help Text
+                        <span class='optional'>(optional)</span>
                       </label>
 
                       <input type='text' data-bind='value: helpText'>
                   </li>
                   <li class='form-field'>
                       <label>
-                        Tipo de pregunta
+                        Question type
                         <span class='required'>*</span>
                       </label>
                       <label class='select-wrapper'>
@@ -79,7 +75,7 @@ formTemplate ="
                   </li>
                   <li class='add-select'>
                       <div data-bind='visible: type() == \"text\"'>
-                          <input style='display:inline' type='text' placeholder='Su respuesta' readonly=''>
+                          <input style='display:inline' type='text' placeholder='Your answer' readonly=''>
                       </div>
                       <div data-bind='visible: type() == \"textarea\"'>
                           <textarea style='display:inline' placeholder='Su párrafo' readonly=''></textarea>
@@ -94,18 +90,18 @@ formTemplate ="
                             </a>
                           </li>
                         </ul>
-                        <input style='display:inline' type='text' placeholder='Click para agregar opcion' readonly='' data-bind='click: function() { return $parent.editForm.fieldType().addOption($data) }' >
+                        <input style='display:inline' type='text' placeholder='Click to add option' readonly='' data-bind='click: function() { return $parent.editForm.fieldType().addOption($data) }' >
                       </div>
                   </li>
                   <li class='form-field'>
                     <label>
-                      <input style='display:inline' data-bind='checked: required, attr: {value: $root.newFieldForm.field().required}' type='checkbox' placeholder='Su respuesta' readonly=''>
-                      Marcar como obligatoria
+                      <input style='display:inline' data-bind='checked: required, attr: {value: $root.newFieldForm.field().required}' type='checkbox' placeholder='Your answer' readonly=''>
+                      This question is mandatory
                       </label>
                   </li>
                   <li class='form-action'>
-                    <button class='button button-secondary button-medium'>Guardar</button>
-                    <a class='cancel button button-medium button-link' href='#' data-bind='click: $parent.cancel'>Cancelar</a>
+                    <button class='button button-secondary button-medium'>Save changes</button>
+                    <a class='cancel button button-medium button-link' href='#' data-bind='click: $parent.cancel'>Cancel</a>
                   </li>
                 </ul>
               </form>
@@ -115,8 +111,8 @@ formTemplate ="
       </div>
       <div data-bind='visible: remainingQuestionLimit() == 0'>
         <div class='system-message notice o-max-questions-warning'>
-          Has llegado al <stronglímite</strong> de <strong>20</strong> preguntas.
-          <a data-reveal-my-id='about-questions-modal' href='#'>¿Por qué solo 20?</a>
+          You have reach the limit of <strong>20</strong> questions.
+          <a data-reveal-my-id='about-questions-modal' href='#'>¿Why only 20?</a>
         </div>
       </div>
 
@@ -124,22 +120,22 @@ formTemplate ="
   </div>
 
   <div class='add-field card-info' data-bind='visible: remainingQuestionLimit() > 0'>
-    <h5 class='fieldset-title'>Agrega hasta <strong data-bind='text: remainingQuestionLimit()'></strong> preguntas</h5>
+    <h5 class='fieldset-title'>Add up to <strong data-bind='text: remainingQuestionLimit()'></strong> questions</h5>
     <form data-bind='with: newFieldForm.field, submit: addQuestion' id='new-form-field'>
       <ul class='form-field-container'>
       <li class='form-field grid-row'>
         <div class='col4 text-right'>
-          <label>Título de la pregunta</label>
+          <label>Question title</label>
         </div>
         <div class='col8'>
-          <input type='text' id='new-field-title' data-bind='value: title, hasfocus: true' title='Este campo es obligatorio'>
+          <input type='text' id='new-field-title' data-bind='value: title, hasfocus: true' title='This field is required'>
         </div>
       </li>
       <li class='form-field grid-row'>
         <div class='col4 text-right'>
           <label>
-            Texto de ayuda
-            <span class='optional'>(Opcional)</span>
+            Help Text
+            <span class='optional'>(optional)</span>
           </label>
         </div>
         <div class='col8'>
@@ -149,7 +145,7 @@ formTemplate ="
       <li class='form-field grid-row'>
         <div class='col4 text-right'>
           <label>
-            Tipo de pregunta
+            Question type
             <span class='required'>*</span>
           </label>
         </div>
@@ -165,7 +161,7 @@ formTemplate ="
       <li class='grid-row add-select'>
         <div class='push4-l col8'>
           <div data-bind='visible: $root.newFieldForm.isFieldType(\"text\")'>
-            <input style='display:inline' type='text' placeholder='Su respuesta' readonly=''>
+            <input style='display:inline' type='text' placeholder='Your answer' readonly=''>
           </div>
           <div data-bind='visible: $root.newFieldForm.isFieldType(\"textarea\")'>
             <textarea style='display:inline' placeholder='Su párrafo' readonly=''></textarea>
@@ -187,14 +183,14 @@ formTemplate ="
       <li class='form-field grid-row'>
         <div class='push4-l col8'>
           <label>
-            <input style='display:inline' data-bind='checked: required, attr: {value: $root.newFieldForm.field().required}' type='checkbox' placeholder='Su respuesta' readonly=''>
-            Marcar como obligatoria
+            <input style='display:inline' data-bind='checked: required, attr: {value: $root.newFieldForm.field().required}' type='checkbox' placeholder='Your answer' readonly=''>
+            This question is mandatory
           </label>
         </div>
       </li>
       <li class='form-action grid-row'>
         <div class='push4-l col8'>
-          <button class='button button-secondary button-default'>Agregar pregunta</button>
+          <button class='button button-secondary button-default'>Add question</button>
         </div>
       </li>
     </ul>

@@ -14,6 +14,6 @@ class FieldSelectOption
     @value.isValid()
 
   _setValidations: ->
-    @value.extend({ required: message: 'Este campo es obligatorio' })
+    @value.extend({ required: message: 'This field is required' })
 
 module.exports = FieldSelectOption

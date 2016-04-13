@@ -44,15 +44,15 @@ class Field
     valid
 
   _setValidations: ->
-    @title.extend({required:  message: 'El titulo de la pregunta es obligatorio'})
-    @type.extend({required: message: 'Selecciona el tipo de pregunta'})
+    @title.extend({required:  message: 'Question title is required'})
+    @type.extend({required: message: 'Please choose a question type'})
     @_setOptionsValidations()
 
   _setOptionsValidations: ->
-    @options.extend(minLength: { params: 1, message: "Agrega al menos 1 opción" })
+    @options.extend(minLength: { params: 1, message: "Add at least 1 option" })
     @options.isModified(false)
 
-    option.value.extend({ required: message: 'Este campo es obligatorio'} ) for option in @options()
+    option.value.extend({ required: message: 'This field is required'} ) for option in @options()
 
   _notifySubscribers: ->
     @title.notifySubscribers()
