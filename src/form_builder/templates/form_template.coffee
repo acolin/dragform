@@ -176,7 +176,7 @@ formTemplate ="
                 </a>
               </li>
             </ul>
-            <input style='display:inline' type='text' placeholder='Click para agregar opcion' readonly='' data-bind='click: function() { return $root.newFieldForm.fieldType().addOption() }' >
+            <input style='display:inline' type='text' placeholder='Click to add option' readonly='' data-bind='click: function() { return $root.newFieldForm.fieldType().addOption() }' >
           </div>
         </div>
       </li>
