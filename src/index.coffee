@@ -1,2 +1,6 @@
 Form = require('./form')
-window.DragForm = Form
+
+if typeof module isnt 'undefined' and @module isnt module
+  window.DragForm = Form
+else
+  module.exports = Form
