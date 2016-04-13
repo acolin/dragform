@@ -7,7 +7,7 @@ A plugin for creating forms using dead simple Drag&Drop
 ```
 <div id='dragform'></div>
 
-<script src="path/to/dragform"></script>
+<script src="path/to/dragform.min.js"></script>
 <script>
   $(function(){
     new DragForm();
