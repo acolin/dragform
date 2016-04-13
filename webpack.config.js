@@ -13,11 +13,15 @@ module.exports = {
   entry: {
     src: PATHS.src
   },
+  devtool: 'source-map',
   output: {
     path: PATHS.dist,
-    filename: 'dragform.js'
+    filename: 'dragform.min.js'
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
+    }),
     new HtmlWebpackPlugin({
       template: PATHS.template,
       title: 'dragform',
