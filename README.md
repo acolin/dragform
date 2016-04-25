@@ -34,6 +34,13 @@ npm install
 webpack-dev-server
 ```
 
+### Running tests
+
+```
+npm test
+
+```
+
 ### Authors
 * [acolin](https://github.com/acolin)
 * [jesuslerma](https://github.com/jesuslerma)
