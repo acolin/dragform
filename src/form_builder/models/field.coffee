@@ -1,3 +1,6 @@
+ko = require('knockout')
+koValidation = require('knockout.validation')
+
 FieldSelectOption = require('./field_select_option')
 
 class Field
