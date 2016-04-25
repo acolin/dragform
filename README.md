@@ -38,7 +38,6 @@ webpack-dev-server
 
 ```
 npm test
-
 ```
 
 ### Authors
