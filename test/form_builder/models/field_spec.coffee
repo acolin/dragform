@@ -13,9 +13,9 @@ describe "Field", ->
         id: 1
       )
 
-      expect(field.isValid()).to.be_true
+      expect(field.isValid()).to.be.true
 
     it "creates an invalid instance", ->
       field = new Field()
 
-      expect(field.isValid()).to.be_false
+      expect(field.isValid()).to.be.false
