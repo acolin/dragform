@@ -1,3 +1,7 @@
+ko = require('knockout')
+jQuery = require('jquery')
+koSortable = require('knockout-sortable')
+
 FormModel = require('./form_builder/models/form')
 FieldForm = require('./form_builder/field_form')
 FieldManager = require('./form_builder/field_manager')
@@ -133,7 +137,7 @@ class Form
     ko.bindingHandlers.sortable.options =
       placeholder: 'ui-state-highlight'
       start: (e, ui) ->
-        dragElements = $('.ui-state-highlight')
+        dragElements = jQuery('.ui-state-highlight')
         dragElements.css 'height', ui.helper.outerHeight()
 
 

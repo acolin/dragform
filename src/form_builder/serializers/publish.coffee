@@ -1,7 +1,10 @@
+ko = require('knockout')
+koMapping = require('knockout-mapping')
+
 class Publish
   constructor:(args={})->
     @fieldList = args.fieldList
-    @form      = args.form
+    @form = args.form
 
   toJSON: ->
     JSON.stringify(@_getJSONToPublish())

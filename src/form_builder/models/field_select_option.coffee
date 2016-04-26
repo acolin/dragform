@@ -1,3 +1,6 @@
+ko = require('knockout')
+koValidation = require('knockout.validation')
+
 class FieldSelectOption
   constructor: (args={}) ->
     @value = ko.observable(args.value)

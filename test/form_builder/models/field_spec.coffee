@@ -19,3 +19,16 @@ describe "Field", ->
       field = new Field()
 
       expect(field.isValid()).to.be.false
+
+  describe "#dup", ->
+    it "duplicates the instance", ->
+      field = new Field(
+        title: "Are you ok?",
+        type: "text",
+        id: 1,
+        position: 1
+      )
+
+      dup = field.dup()
+
+      expect(dup).to.be.instanceof(Field)

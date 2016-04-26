@@ -1,3 +1,5 @@
+ko = require('knockout')
+
 Field = require('./models/field')
 TextFieldType = require('./field_types/text_field_type')
 TextAreaFieldType = require('./field_types/text_area_field_type')
