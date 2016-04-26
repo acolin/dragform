@@ -1,5 +1,6 @@
 ko = require('knockout')
 koValidation = require('knockout.validation')
+koMapping = require('knockout-mapping')
 
 FieldSelectOption = require('./field_select_option')
 
