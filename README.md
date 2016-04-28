@@ -16,7 +16,7 @@ A plugin for creating forms using dead simple Drag&Drop
 ### DragForm params
 
 ```
-{
+new DragForm({
         "id": 1,
         "fields": [
           {
@@ -54,7 +54,23 @@ A plugin for creating forms using dead simple Drag&Drop
             "type":"text",
           }
         ]
-  }
+  });
+```
+
+## Subscribe to triggers/events
+```
+var dragForm = new DragForm();
+
+// onChanges: is triggered after adding, removing or changing position or content of a question.
+dragForm('onChanges', function(form) {
+  // the resulting json is the same as above params
+  var json = form.toJSON();
+});
+// onPublish: is triggered after pressing the publish button
+dragForm('onPublish', function(form) {
+  // the resulting json is the same as above params
+  var json = form.toJSON();
+});
 ```
 
 ### Development
