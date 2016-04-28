@@ -4,7 +4,7 @@ A plugin for creating forms using dead simple Drag&Drop
 
 ### Usage
 
-```
+```javascript
 <div id='dragform'></div>
 
 <script src="path/to/dragform.min.js"></script>
@@ -15,7 +15,7 @@ A plugin for creating forms using dead simple Drag&Drop
 
 ### DragForm params
 
-```
+```javascript
 new DragForm({
         "id": 1,
         "fields": [
@@ -58,7 +58,7 @@ new DragForm({
 ```
 
 ## Subscribe to triggers/events
-```
+```javascript
 var dragForm = new DragForm();
 
 // onChanges: is triggered after adding, removing or changing position or content of a question.
