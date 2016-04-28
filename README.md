@@ -4,23 +4,73 @@ A plugin for creating forms using dead simple Drag&Drop
 
 ### Usage
 
-```
+```javascript
 <div id='dragform'></div>
-<!-- external dependencies -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout-sortable/0.9.3/knockout-sortable.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js'></script>
-<!-- end -->
 
 <script src="path/to/dragform.min.js"></script>
 <script>
-  $(function(){
-    new DragForm();
-  });
+  new DragForm();
 </script>
+```
+
+### DragForm params
+
+```javascript
+new DragForm({
+        "id": 1,
+        "fields": [
+          {
+            "id": 34,
+            "helpText":"da help text",
+            "position":1,
+            "required":false,
+            "options":[],
+            "title":"Pregunta parrafo?",
+            "type":"textarea",
+          },
+          {
+            "id": 35,
+            "helpText":"helpz",
+            "position":3,
+            "required":false,
+            "options":[
+              {
+                "value":"One"
+              },
+              {
+                "value":"Two"
+              }
+            ],
+            "title":"Pregunta texto?",
+            "type":"select"
+          },
+          {
+            "id": 124,
+            "helpText": null,
+            "position": 4,
+            "required": true,
+            "options":[],
+            "title":"¿Cuál es tu nombre?",
+            "type":"text",
+          }
+        ]
+  });
+```
+
+## Subscribe to triggers/events
+```javascript
+var dragForm = new DragForm();
+
+// onChanges: is triggered after adding, removing or changing position or content of a question.
+dragForm('onChanges', function(form) {
+  // the resulting json is the same as above params
+  var json = form.toJSON();
+});
+// onPublish: is triggered after pressing the publish button
+dragForm('onPublish', function(form) {
+  // the resulting json is the same as above params
+  var json = form.toJSON();
+});
 ```
 
 ### Development
@@ -32,6 +82,12 @@ npm install
 
 // Run the dev server at localhost:8080
 webpack-dev-server
+```
+
+### Running tests
+
+```
+npm test
 ```
 
 ### Authors

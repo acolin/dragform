@@ -1,3 +1,5 @@
+ko = require('knockout')
+
 FieldForm = require('./field_form')
 Field = require('./models/field');
 
