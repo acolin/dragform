@@ -5,17 +5,17 @@ koSortable = require('knockout-sortable')
 FormModel = require('./form_builder/models/form')
 FieldForm = require('./form_builder/field_form')
 FieldManager = require('./form_builder/field_manager')
-FormSerializer = require('./form_builder/serializers/publish')
+FormSerializer = require('./form_builder/serializers/form_serializer')
 formTemplate = require('./form_builder/templates/form_template')
 
 class Form
   constructor: (args={}) ->
-    @form = new FormModel(args.registrationForm)
+    @form = new FormModel(args.form)
     @title = args.title || @_defaultTitle()
     @description = args.description || @_defaultDescription()
     @newFieldForm = new FieldForm()
     @fieldList = ko.observableArray()
-    @_initFieldList(args.fieldsData)
+    @_initFieldList(args.fields)
     @defaultQuestionLimit = @_initQuestionLimit(args.questionLimit)
     @filteredList = ko.computed((->
       @_computeFilteredList()
@@ -59,7 +59,11 @@ class Form
     @hasChanges(true) if item.field()._destroy(true)
 
   toJSON:->
-    form = new FormSerializer(fieldList: @fieldList(), form: @form)
+    form = new FormSerializer(
+      fieldList: @fieldList()
+      form: @form
+    )
+
     form.toJSON()
 
   isNewRecord:->
@@ -71,7 +75,6 @@ class Form
     @activeForm(true)
 
   triggerHasChanges:(args) =>
-    console.log("ordenado")
     @_changePosition(args)
     @hasChanges(true)
 
