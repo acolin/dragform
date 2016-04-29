@@ -78,7 +78,7 @@ formTemplate ="
                           <input style='display:inline' type='text' placeholder='Your answer' readonly=''>
                       </div>
                       <div data-bind='visible: type() == \"textarea\"'>
-                          <textarea style='display:inline' placeholder='Su párrafo' readonly=''></textarea>
+                          <textarea style='display:inline' placeholder='Your paragraph' readonly=''></textarea>
                       </div>
                       <div data-bind='visible: type() == \"select\"'>
                         <span>Opciones:</span>
@@ -164,7 +164,7 @@ formTemplate ="
             <input style='display:inline' type='text' placeholder='Your answer' readonly=''>
           </div>
           <div data-bind='visible: $root.newFieldForm.isFieldType(\"textarea\")'>
-            <textarea style='display:inline' placeholder='Su párrafo' readonly=''></textarea>
+            <textarea style='display:inline' placeholder='Your paragraph' readonly=''></textarea>
           </div>
           <div data-bind='visible: $root.newFieldForm.isFieldType(\"select\")'>
             <span>Opciones:</span>
